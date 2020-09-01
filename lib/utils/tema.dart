@@ -26,31 +26,4 @@ class Tema {
 
     return Color.fromRGBO(red, green, blue, 1);
   }
-
-  static InputDecoration inputDecorationDropDown({String label}) =>
-      InputDecoration(
-        filled: true,
-        fillColor: Colors.white,
-        labelText: label,
-        contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(),
-          borderRadius: BorderRadius.all(
-            Radius.circular(40.0),
-          ),
-        ),
-      );
-
-  static final RangeThumbSelector customRangeThumbSelector = (
-    TextDirection textDirection,
-    RangeValues values,
-    double tapValue,
-    Size thumbSize,
-    Size trackSize,
-    double dx,
-  ) {
-    final double start = (tapValue - values.start).abs();
-    final double end = (tapValue - values.end).abs();
-    return start < end ? Thumb.start : Thumb.end;
-  };
 }

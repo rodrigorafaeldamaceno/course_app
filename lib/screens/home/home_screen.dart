@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   CourseStore controller = CourseStore();
   Size size;
+
   @override
   void initState() {
     super.initState();
