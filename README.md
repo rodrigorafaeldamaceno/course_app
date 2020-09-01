@@ -19,5 +19,9 @@ samples, guidance on mobile development, and a full API reference.
 
 This app uses a static json to simulate a API and populate courses data, this json can edited in lib/utils/json.dart
 
-* Flutter version - 1.20.2 Stable;
+* Flutter version - 1.20.2 Stable; 
 * To generate an android apk run "flutter build apk" in your terminal.
+
+![alt text](https://raw.githubusercontent.com/rodrigorafaeldamaceno/courses_app/master/assets/readme/list.jpeg)
+
+![alt text](https://raw.githubusercontent.com/rodrigorafaeldamaceno/courses_app/master/assets/readme/details.jpeg)
