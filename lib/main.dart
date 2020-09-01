@@ -29,16 +29,6 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           elevation: 0,
           color: Tema.fundo,
-          // iconTheme: IconThemeData(
-          //   color: Colors.black38,
-          // ),
-          // textTheme: TextTheme(
-          //   headline6: TextStyle(
-          //     fontWeight: FontWeight.bold,
-          //     fontSize: 16,
-          //     color: Colors.black38,
-          //   ),
-          // ),
         ),
       ),
     );
