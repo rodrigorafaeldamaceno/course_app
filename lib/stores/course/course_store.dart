@@ -18,8 +18,6 @@ abstract class _CourseStoreBase with Store {
     courses.clear();
     courses.addAll(response);
 
-    print(courses.toList());
-
     return courses;
   }
 }
