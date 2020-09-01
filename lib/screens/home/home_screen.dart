@@ -1,4 +1,5 @@
 import 'package:course_app/models/course/course_model.dart';
+import 'package:course_app/routes.dart';
 import 'package:course_app/stores/course/course_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -10,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   CourseStore controller = CourseStore();
-
+  Size size;
   @override
   void initState() {
     super.initState();
@@ -24,6 +25,13 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                Routes.courseDetails,
+                arguments: course,
+              );
+            },
             title: Text(
               course.name,
               style: TextStyle(
@@ -64,13 +72,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget buildSliverAppBar() {
     return SliverAppBar(
-      expandedHeight: 150.0,
+      expandedHeight: size.height * 0.3,
       backgroundColor: Colors.black,
       brightness: Brightness.dark,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         title: Column(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'CURSOS E TREINAMENTOS',
@@ -115,6 +124,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
