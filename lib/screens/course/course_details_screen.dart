@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:course_app/models/course/course_model.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
@@ -93,33 +94,7 @@ class _CourseDetailsScreenState extends State<CourseDetailsScreen> {
                     crossAxisCount: 2,
                     physics: NeverScrollableScrollPhysics(),
                     children: widget.course.images
-                        .map((image) => Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (_) {
-                                      return DetailScreen(
-                                        NetworkImage(image),
-                                      );
-                                    }),
-                                  );
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.red,
-                                    image: DecorationImage(
-                                      fit: BoxFit.fill,
-                                      image: NetworkImage(image),
-                                    ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(8),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ))
+                        .map((image) => buildImageDescCourse(context, image))
                         .toList(),
                   )
                 ],
@@ -128,6 +103,42 @@ class _CourseDetailsScreenState extends State<CourseDetailsScreen> {
           ),
         ),
       ]),
+    );
+  }
+
+  Padding buildImageDescCourse(BuildContext context, String image) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) {
+              return DetailScreen(
+                CachedNetworkImageProvider(image),
+              );
+            }),
+          );
+        },
+        child: CachedNetworkImage(
+          imageUrl: image,
+          placeholder: (context, url) => CircularProgressIndicator(),
+          errorWidget: (context, url, error) => Icon(Icons.error),
+          imageBuilder: (context, imageProvider) => Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: imageProvider,
+                fit: BoxFit.cover,
+              ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 
@@ -149,7 +160,7 @@ class _CourseDetailsScreenState extends State<CourseDetailsScreen> {
 class DetailScreen extends StatelessWidget {
   DetailScreen(this.image);
 
-  final NetworkImage image;
+  final CachedNetworkImageProvider image;
 
   @override
   Widget build(BuildContext context) {
@@ -168,7 +179,6 @@ class DetailScreen extends StatelessWidget {
         ),
       ),
       body: PhotoView(
-        // heroAttributes: PhotoViewHeroAttributes(tag: 'imageHero'),
         imageProvider: image,
       ),
     );

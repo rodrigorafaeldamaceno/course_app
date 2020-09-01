@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:course_app/models/course/course_model.dart';
 import 'package:course_app/routes.dart';
 import 'package:course_app/stores/course/course_store.dart';
@@ -42,14 +43,20 @@ class _HomeScreenState extends State<HomeScreen> {
             trailing: Container(
               width: 60,
               height: 60,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: NetworkImage(course.logo),
-                ),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(16),
+              child: CachedNetworkImage(
+                imageUrl: course.logo,
+                placeholder: (context, url) => CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+                imageBuilder: (context, image) => Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: image,
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8),
+                    ),
+                  ),
                 ),
               ),
             ),
