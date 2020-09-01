@@ -39,17 +39,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            trailing: CircleAvatar(
-              radius: 30,
-              child: Container(
-                width: 70.0,
-                height: 70.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: NetworkImage(course.logo),
-                  ),
+            trailing: Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: NetworkImage(course.logo),
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(16),
                 ),
               ),
             ),
@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
       flexibleSpace: FlexibleSpaceBar(
         title: Column(
           mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               'CURSOS E TREINAMENTOS',
@@ -87,6 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(
                 color: Colors.orange,
                 fontWeight: FontWeight.bold,
+                fontSize: 14,
               ),
             ),
             Text(
@@ -106,16 +107,16 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       leading: Icon(
-        Icons.menu,
+        Icons.settings,
         color: Colors.white,
       ),
       actions: <Widget>[
         IconButton(
           icon: const Icon(
-            Icons.add_circle,
+            Icons.menu,
             color: Colors.white,
           ),
-          tooltip: 'Add new entry',
+          tooltip: 'Menu',
           onPressed: () {},
         ),
       ],

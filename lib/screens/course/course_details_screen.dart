@@ -33,6 +33,7 @@ class _CourseDetailsScreenState extends State<CourseDetailsScreen> {
               icon: Icon(
                 Icons.arrow_back_ios,
                 color: Colors.white,
+                size: 20,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -44,6 +45,7 @@ class _CourseDetailsScreenState extends State<CourseDetailsScreen> {
               style: TextStyle(
                 color: Colors.orange,
                 fontWeight: FontWeight.bold,
+                fontSize: 14,
               ),
             ),
           ],
@@ -55,16 +57,16 @@ class _CourseDetailsScreenState extends State<CourseDetailsScreen> {
         ),
       ),
       leading: Icon(
-        Icons.menu,
+        Icons.settings,
         color: Colors.white,
       ),
       actions: <Widget>[
         IconButton(
           icon: const Icon(
-            Icons.add_circle,
+            Icons.menu,
             color: Colors.white,
           ),
-          tooltip: 'Add new entry',
+          tooltip: 'Menu',
           onPressed: () {},
         ),
       ],
