@@ -22,6 +22,6 @@ This app uses a static json to simulate a API and populate courses data, this js
 * Flutter version - 1.20.2 Stable; 
 * To generate an android apk run "flutter build apk" in your terminal.
 
-![alt text](https://raw.githubusercontent.com/rodrigorafaeldamaceno/courses_app/master/assets/readme/list.jpeg)
+![alt text](https://raw.githubusercontent.com/rodrigorafaeldamaceno/course_app/master/assets/readme/list.jpeg)
 
-![alt text](https://raw.githubusercontent.com/rodrigorafaeldamaceno/courses_app/master/assets/readme/details.jpeg)
+![alt text](https://raw.githubusercontent.com/rodrigorafaeldamaceno/course_app/master/assets/readme/details.jpeg)
